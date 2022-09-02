@@ -14,7 +14,7 @@ public class Hooks {
 	
 	@Before
 	public void setup() {
-		SeleniumDriver.setupDriver();
+		SeleniumDriver.setUpDriver();
 	}
 	
 	

@@ -14,6 +14,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SeleniumDriver {
+	
+	public static Properties config=new Properties();
+
+	public static Properties objectRepo= new Properties();
 
 	private static SeleniumDriver seleniumDriver;
 
@@ -21,30 +25,28 @@ public class SeleniumDriver {
 
 	private static WebDriverWait waitDriver;
 
-	private Properties config=new Properties();
-
-	public static Properties objectReop= new Properties();
 
 	private FileInputStream fis;
 
-	public SeleniumDriver() {
+	private SeleniumDriver() {
 		try {
 			fis =new FileInputStream("./src/main/resources/properties/objectRepo.properties");
 		} catch (FileNotFoundException e) {		
 			e.printStackTrace();
 		}
+
 		try {
-			objectReop.load(fis);
+			objectRepo.load(fis);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-
 		try {
-			fis =new FileInputStream("./src/main/resources/properties/objectRepo.properties");
+			fis =new FileInputStream("./src/main/resources/properties/config.properties");
 		} catch (FileNotFoundException e) {	
 			e.printStackTrace();
 		}
+
 		try {
 			config.load(fis);
 		} catch (IOException e) {
@@ -62,6 +64,7 @@ public class SeleniumDriver {
 		}
 
 		driver.manage().window().maximize();
+		
 		waitDriver=new WebDriverWait(driver, Duration.ofSeconds(Integer.parseInt(config.getProperty("explicit.wait"))));
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.parseInt(config.getProperty("implicit.wait"))));
@@ -75,18 +78,16 @@ public class SeleniumDriver {
 		return driver;
 	}
 
-	public static void setupDriver() {
+	public static void  setUpDriver() {
 		if (seleniumDriver == null) {
 			seleniumDriver = new SeleniumDriver();
 		}
 	}
-	
+
 	public static void openPage(String url) {
 		driver.get(url);
-		
-	}
-	
-	
+
+	}	
 
 	public static void tearDown() {
 		if (driver!=null) {
@@ -95,20 +96,5 @@ public class SeleniumDriver {
 		}
 		seleniumDriver = null;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
