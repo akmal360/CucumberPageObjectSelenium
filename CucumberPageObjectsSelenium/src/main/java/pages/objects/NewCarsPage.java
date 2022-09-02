@@ -6,7 +6,7 @@ public class NewCarsPage extends BasePage{
 
 	
 	public void gotoToyota() {
-		
+		click("toyota_LINK");
 	}
 	
 	public void gotoBMW() {

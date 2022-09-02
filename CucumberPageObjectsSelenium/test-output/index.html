@@ -130,10 +130,13 @@
                   </a> <!-- runScenario("Finding new cars", "Searching New Cars") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Finding new cars","Searching New Cars")</span>
-                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;String.equals(Object)&quot; because the return value of &quot;java.util.Properties.getProperty(String)&quot; is null
-	at utils.SeleniumDriver.&lt;init&gt;(SeleniumDriver.java:55)
-	at utils.SeleniumDriver.setupDriver(SeleniumDriver.java:80)
-	at steps.Hooks.setup(Hooks.java:17)
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertTrue(Assert.java:56)
+	at org.testng.Assert.assertTrue(Assert.java:66)
+	at steps.CarWaleSteps.user_validate_car_titels_as_toyota_cars(CarWaleSteps.java:43)
+	at ✽.user validate car titels as Toyota Cars(file:///Users/akmal360/eclipse-workspace/CucumberPageObjectSelenium/CucumberPageObjectsSelenium/src/test/resources/features/findcars.feature:12)
 
 </div> <!-- stack-trace -->
                   <em>
@@ -145,7 +148,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/71/650z4rvn18183l86dhj11q7w0000gn/T/testng-eclipse--210786226/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/71/650z4rvn18183l86dhj11q7w0000gn/T/testng-eclipse-281621097/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -206,12 +209,12 @@ data.addRows(1);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'runner.RunCucumber')
-data.setCell(0, 3, 160);
+data.setCell(0, 3, 13275);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 160 ms</span>
+              <span class="suite-total-time">Total running time: 13 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -239,18 +242,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">runner.RunCucumber</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@1f44ddab)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@3ca17943)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">runScenario("Finding new cars", "Searching New Cars")</span>
-                <span class="method-start">939 ms</span>
+                <span class="method-start">821 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">1108 ms</span>
+                <span class="method-start">14103 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

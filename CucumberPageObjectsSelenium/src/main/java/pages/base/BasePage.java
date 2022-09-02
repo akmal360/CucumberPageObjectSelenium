@@ -69,8 +69,8 @@ public class BasePage {
 			return false;
 		}
 	}
-	
-	
+
+
 	public void type(String locator,String value) {
 		if (locator.endsWith("_XPATH")) {
 			driver.findElement(By.xpath(SeleniumDriver.objectRepo.getProperty(locator))).sendKeys(value);
@@ -84,5 +84,21 @@ public class BasePage {
 		else if (locator.endsWith("_LINK")) {
 			driver.findElement(By.linkText(SeleniumDriver.objectRepo.getProperty(locator))).sendKeys(value);
 		}
+	}
+
+	public String getText(String locator) {
+		if (locator.endsWith("_XPATH")) {
+			locator=driver.findElement(By.xpath(SeleniumDriver.objectRepo.getProperty(locator))).getText(); 
+		}
+		else if (locator.endsWith("_ID")) {
+			locator=driver.findElement(By.id(SeleniumDriver.objectRepo.getProperty(locator))).getText(); 
+		}
+		else if (locator.endsWith("_CSS")) {
+			locator=driver.findElement(By.cssSelector(SeleniumDriver.objectRepo.getProperty(locator))).getText(); 
+		}
+		else if (locator.endsWith("_LINK")) {
+			locator=driver.findElement(By.linkText(SeleniumDriver.objectRepo.getProperty(locator))).getText(); 
+		}
+		return locator;
 	}
 }
